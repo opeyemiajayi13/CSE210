@@ -24,7 +24,7 @@ public class Scripture
         }
     }
 
-    // Hides a number of randomly selected visible words
+    // Hide a number of randomly selected visible words
     public void HideRandomWords(int numberToHide)
     {
         List<int> availableWords = new List<int>();
@@ -48,7 +48,7 @@ public class Scripture
         }
     }
 
-    // Checks whether all words are hidden
+    // Check whether all words are hidden
     public bool IsCompletelyHidden()
     {
         foreach (Word word in _words)
@@ -62,16 +62,17 @@ public class Scripture
         return true;
     }
 
-    // Displays the scripture reference and text
+    // Display the scripture reference and words
     public string GetDisplayText()
     {
-        string result = _reference.GetDisplayText() + " ";
+        List<string> displayWords = new List<string>();
 
         foreach (Word word in _words)
         {
-            result += word.GetDisplayText() + " ";
+            displayWords.Add(word.GetDisplayText());
         }
 
-        return result.Trim();
+        return _reference.GetDisplayText() + " " +
+               string.Join(" ", displayWords);
     }
 }

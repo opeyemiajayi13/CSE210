@@ -23,7 +23,7 @@ public class Reference
         _endVerse = endVerse;
     }
 
-    // Displays the scripture reference
+    // Display the scripture reference
     public string GetDisplayText()
     {
         if (_startVerse == _endVerse)

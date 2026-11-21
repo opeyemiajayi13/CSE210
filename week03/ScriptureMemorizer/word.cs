@@ -10,19 +10,19 @@ public class Word
         _isHidden = false;
     }
 
-    // Hides the word
+    // Hide the word
     public void Hide()
     {
         _isHidden = true;
     }
 
-    // Checks whether the word is hidden
+    // Check whether the word is hidden
     public bool IsHidden()
     {
         return _isHidden;
     }
 
-    // Displays the word or underscores
+    // Display the word or underscores
     public string GetDisplayText()
     {
         if (!_isHidden)
@@ -44,6 +44,6 @@ public class Word
             }
         }
 
-        return hiddenText;S
+        return hiddenText;
     }
 }

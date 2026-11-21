@@ -5,9 +5,9 @@ class Program
     static void Main(string[] args)
     {
         // Creativity feature:
-        // The program contains a library of scriptures.
-        // It randomly selects a scripture each time the program starts.
-        // This gives users different scriptures to memorize.
+        // This program contains a library of three scriptures.
+        // A different scripture is randomly selected each time
+        // the program starts, giving the user more practice.
 
         Scripture[] scriptureLibrary =
         {
@@ -27,49 +27,43 @@ class Program
             )
         };
 
-        // Randomly select a scripture from the library.
         Random random = new Random();
 
         Scripture scripture = scriptureLibrary[
             random.Next(scriptureLibrary.Length)
         ];
 
-        // Continue until all words are hidden or the user quits.
         while (true)
         {
             Console.Clear();
 
-            Console.WriteLine("================================");
-            Console.WriteLine("       SCRIPTURE MEMORIZER");
-            Console.WriteLine("================================");
+            Console.WriteLine("==============================");
+            Console.WriteLine("     SCRIPTURE MEMORIZER");
+            Console.WriteLine("==============================");
             Console.WriteLine();
 
-            // Display the scripture.
             Console.WriteLine(scripture.GetDisplayText());
             Console.WriteLine();
 
-            // Check whether all words are hidden.
             if (scripture.IsCompletelyHidden())
             {
                 Console.WriteLine("Congratulations!");
-                Console.WriteLine("You have hidden all the words.");
+                Console.WriteLine("All scripture words are hidden.");
                 Console.WriteLine("Thank you for practicing!");
                 break;
             }
 
             Console.WriteLine("Press ENTER to hide three random words.");
-            Console.WriteLine("Type 'quit' to exit the program.");
+            Console.WriteLine("Type 'quit' to exit.");
 
             string input = Console.ReadLine();
 
-            // Allow the user to quit.
-            if (input != null && input.Trim().ToLower() == "quit")
+            if (input != null && input.Trim().ToLowerInvariant() == "quit")
             {
                 Console.WriteLine("Thank you for using Scripture Memorizer!");
                 break;
             }
 
-            // Hide three words when Enter is pressed.
             if (string.IsNullOrEmpty(input))
             {
                 scripture.HideRandomWords(3);
